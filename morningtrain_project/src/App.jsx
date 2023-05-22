@@ -1,6 +1,6 @@
 import Navigation from './components/Navigation/Navigation'
 import './Styling/GlobalColors.scss'
-import './Styling/MobileNav.scss'
+import './Styling/Navigation.scss'
 
 export default function App() {
 
