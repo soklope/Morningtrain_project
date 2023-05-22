@@ -5,6 +5,7 @@ import Employee from './components/Employee/Employee'
 import Navigation from './components/Navigation/Navigation'
 import './Styling/GlobalColors.scss'
 import './Styling/Navigation.scss'
+import './Styling/LoginScreen.scss'
 
 export default function App() {
 
