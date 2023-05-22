@@ -1,7 +1,7 @@
 import React from "react";
 import Chart from "react-google-charts"
 
-export default function Employee() {
+export default function PrivateGraph() {
     return (
         <>
             <div>Medarbejdere</div>
@@ -15,10 +15,7 @@ export default function Employee() {
                 width="100%"
                 height="40vh"
                 legendToggle
-                options={
-                    title: trivsel udenfor arbejde,
-                    legend: "none"
-                }
+             
                 />
         </>
     )
