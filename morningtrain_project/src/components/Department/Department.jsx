@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function LoginScreen() {
+export default function Department() {
     return (
         <div>
-            <p>Login Screen</p>
+            <p>Afdeling</p>
         </div>
     )
 }
