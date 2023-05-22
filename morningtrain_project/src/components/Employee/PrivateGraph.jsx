@@ -4,18 +4,15 @@ import Chart from "react-google-charts"
 export default function PrivateGraph() {
     return (
         <>
-            <div>Medarbejdere</div>
-
             <Chart
-                chartType="ScatterChart"
+                chartType="AreaChart"
                 // data skal være datasæt, 
                 // første datasæt er mærkaterne til axerne, 
                 // resten er punkter i grafen.
-                data={[["Age", "Din mor"], [1, 5.5], [8, 12], [9, 14]]}
+                data={[["Aalder", "Direkte stressniveau"], [1, 80], [8, 12], [9, 14],[45, 130]]}
                 width="100%"
                 height="40vh"
                 legendToggle
-             
                 />
         </>
     )
