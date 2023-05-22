@@ -3,9 +3,7 @@ import LoginScreen from './components/LoginScreen/Login'
 import Department from './components/Department/Department'
 import Employee from './components/Employee/Employee'
 import Navigation from './components/Navigation/Navigation'
-import './Styling/GlobalColors.scss'
-import './Styling/Navigation.scss'
-import './Styling/LoginScreen.scss'
+import './index.scss'
 
 export default function App() {
 

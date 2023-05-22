@@ -15,6 +15,7 @@ export default function WorkGraph() {
                 width="100%"
                 height="40vh"
                 legendToggle
+                className="graf"
                 />
         </>
     )
