@@ -7,7 +7,7 @@ export default function Header() {
 
     if (Location !== '/') {
         return (
-            <nav>
+            <nav className="nav-container">
                 <ul>
                     <li>
                         <Link to='/'>Log Ud</Link>
@@ -18,7 +18,6 @@ export default function Header() {
             </nav>
         )
     } else {
-        
         return (
             <>
 

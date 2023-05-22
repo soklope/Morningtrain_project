@@ -1,5 +1,11 @@
 @import './GlobalColors.scss';
 
-.test {
+.nav-container {
+    display: flex;
+    align-items: center;
     background-color: $mt-orange;
+    height: 75px;
+    width: 100%;
+    top: 0px;
+    position: fixed;
 }
