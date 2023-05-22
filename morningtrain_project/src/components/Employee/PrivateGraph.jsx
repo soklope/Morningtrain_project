@@ -9,10 +9,11 @@ export default function PrivateGraph() {
                 // data skal være datasæt, 
                 // første datasæt er mærkaterne til axerne, 
                 // resten er punkter i grafen.
-                data={[["Aalder", "Direkte stressniveau"], [1, 80], [8, 12], [9, 14],[45, 130]]}
+                data={[["Aalder", "Direkte stressniveau"], [1, 10000], [8, 12], [9, 14],[45, 130]]}
                 width="100%"
                 height="40vh"
                 legendToggle
+                className="graph"
                 />
         </>
     )
