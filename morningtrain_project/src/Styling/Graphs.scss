@@ -1,5 +1,15 @@
 @import './GlobalColors.scss';
 
-.graph {
-    margin-top: 75px;
+.graph {   
+    z-index: 1; 
+    padding-top: 75px;
+    rect {
+    }
+}
+
+h2 {
+    padding-top: 75px;
+}
+.stats {
+    padding-left: 40%;
 }
