@@ -13,7 +13,7 @@ export default function EmployeeList( {open} ) {
 
             <div className="dropdown-container__employees">
                 {listOfEmployees.map((name, index) => (
-                    <div key={index}><Link to= './Employee'>{name}</Link></div>
+                    <div key={index}><Link to='./Employee'>{name}</Link></div>
                 ))}
             </div>
         </div>

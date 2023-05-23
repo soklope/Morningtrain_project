@@ -20,9 +20,9 @@ import {
     Legend
   );
   
-  export const options = {
+  const options = {
     responsive: true,
-  };
+  }
   
   const labels = ['A', 'B', 'C', 'D', 'E'];
   

@@ -14,31 +14,32 @@ export default function Header() {
     const Location = useLocation().pathname
 
     const listClick = () => {
-        setOpenListTab(true)
+        setOpenListTab(!openListTab)
         setOpenProfileTab(false)
     }
 
     const profileClick = () => {
+        setOpenProfileTab(!openProfileTab)
         setOpenListTab(false)
-        setOpenProfileTab(true)
     }
 
     const departmentClick = () => {
         setOpenListTab(false)
         setOpenProfileTab(false)
     }
+    console.log(Location);
 
     if (Location !== '/') {
         return (
             <>
                 <nav className="mobile-nav-container">
-                    <div className={openListTab || openProfileTab ? "" : "active"} onClick={departmentClick}>
+                    <div className={openListTab || openProfileTab || Location === "/Employee" ? "" : "active"} onClick={departmentClick}>
                         <Link to='/Department'>
                             <img src={chartIcon} alt="afdeling" />
                         </Link>
                     </div>
 
-                    <div className={openListTab ? "active" : ""}>
+                    <div className={Location === "/Employee" || openListTab ? "active" : ""}>
                         <div onClick={listClick}>
                             <img src={employeeIcon} alt="medarbejdere" />
                         </div>
