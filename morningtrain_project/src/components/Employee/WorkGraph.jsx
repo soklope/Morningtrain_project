@@ -5,7 +5,7 @@ import Chart from "react-google-charts"
 export default function WorkGraph() {
     return (
         <>
-            <Navigation/>
+        
             <Chart
                 chartType="AreaChart"
                 // data skal være datasæt, 
