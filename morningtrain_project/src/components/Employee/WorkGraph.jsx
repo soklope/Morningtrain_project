@@ -1,23 +1,49 @@
-import React from "react";
-import Navigation from "../Navigation/Navigation"
-import Chart from "react-google-charts"
+import React from 'react';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
+import faker from 'faker';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+export const options = {
+  responsive: true,
+};
+
+const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+
+export const data = {
+  labels,
+  datasets: [
+    {
+      label: '',
+      data: [1,2,3,4,5,8],
+      borderColor: '#15cfa6',
+      backgroundColor: '#15cfa6',
+    }
+  ],
+};
 
 export default function WorkGraph() {
-    return (
-        <>
-        
-            <Chart
-                chartType="AreaChart"
-                // data skal være datasæt, 
-                // første datasæt er mærkaterne til axerne, 
-                // resten er punkter i grafen.
-                data={[["Age", "Direkte stressniveau"], [1, 5.5], [8, 12], [9, 14]]}
-                width="100%"
-                height="40vh"
-                legendToggle
-                className="graph"
-            
-                />
-        </>
-    )
+  return (
+  <div className="department-container__graph">
+  <Line options={options} data={data} />
+  </div>
+  );
 }
