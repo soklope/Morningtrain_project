@@ -1,9 +1,48 @@
+@import './GlobalColors.scss';
+
+.department-container {
+    padding-top: 100px;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-bottom: 22px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+
+    &__dapartment-name {
+        color: $mt-orange;
+        font-size: 36px;
+        text-transform: uppercase;
+    }
+
+    &__graph {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        filter: drop-shadow(0px 0px 10px #00000020);
+        background-color: #ffffff;
+        margin-top: 15px;
+        padding: 20px;
+
+        &__li {
+            display: flex;
+            gap: 10px;
+
+            :nth-child(1) {
+                color: $mt-orange;
+                font-weight: bold;
+                letter-spacing: 2px;
+            }
+        }
+    }
+}
+
 @media screen and (min-width: 1200px) {
     .department-container {
         display: flex;
         flex-direction: column;
-        filter: drop-shadow(0px 0px 10px #0000003d);
-        background-color: #ffffff;
-        width: 90%;
+        width: 100%;
+        padding: 0px;
     }
 }
