@@ -27,7 +27,6 @@ export default function Header() {
         setOpenListTab(false)
         setOpenProfileTab(false)
     }
-    console.log(Location);
 
     if (Location !== '/') {
         return (

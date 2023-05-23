@@ -1,7 +1,8 @@
 import React from "react";
 import { managerArray } from "../../db";
-import DepartmentGraph from "./DapartmentGraph";
+import DepartmentGraphMobile from "./DapartmentGraphMobile";
 import MobileGraphDesc from "./MobileGraphDesc";
+import DepartmentGraphDesktop from "./DepartmentGraphDesktop";
 
 export default function Department() {
     return (
@@ -11,8 +12,14 @@ export default function Department() {
                 <div className="department-container__dapartment-name" key={index}>{manager.departmentName}</div>
             ))}
 
-            <DepartmentGraph />
-            <MobileGraphDesc />
+            <div className="hide-on-mobile">
+                <DepartmentGraphDesktop />
+            </div>
+
+            <div className="hide-on-desktop">
+                <DepartmentGraphMobile />
+                <MobileGraphDesc />
+            </div>
         </div>
     )
 }

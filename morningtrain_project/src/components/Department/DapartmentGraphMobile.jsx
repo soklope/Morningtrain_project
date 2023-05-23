@@ -21,23 +21,32 @@ import {
   );
   
   const options = {
-    responsive: true,
-  }
+    responsive: true, 
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false
+      },
+      title: {
+        display: false,
+      },
+    }
+  };
   
   const labels = ['A', 'B', 'C', 'D', 'E'];
   
-  export const data = {
+  const data = {
     labels,
     datasets: [
       {
-        label: 'Dataset 1',
         data: [1, 2, 3, 4, 5],
         backgroundColor: '#FF9333',
+        barPercentage: 0.3,
       },
     ],
   };
 
-export default function DepartmentGraph() {
+export default function DepartmentGraphMobile() {
     return (
         <div className="department-container__graph">
             <Bar options={options} data={data} />

@@ -1,5 +1,9 @@
 @import './GlobalColors.scss';
 
+.hide-on-mobile {
+    display: none;
+}
+
 .department-container {
     padding-top: 100px;
     padding-left: 22px;
@@ -39,10 +43,39 @@
 }
 
 @media screen and (min-width: 1200px) {
+    .hide-on-desktop {
+        display: none;
+    }
+
+    .hide-on-mobile {
+        display: block;
+    }
+
     .department-container {
         display: flex;
         flex-direction: column;
         width: 100%;
         padding: 0px;
+
+        &__graph {
+            height: 100%;
+
+            &__frame {
+                height: 76.5vh;
+            }
+        }
+
+
+        &__labels {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            padding-left: 30px;
+
+            div {
+                width: 210px;
+                text-align: center;
+            }
+        }
     }
 }
