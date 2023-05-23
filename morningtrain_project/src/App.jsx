@@ -9,13 +9,15 @@ export default function App() {
 
   return (
     <>
-      <Navigation />
+      <div className='body-flex'>
+        <Navigation />
 
-      <Routes>
-        <Route path='/' element={ <LoginScreen />}/>
-        <Route path='/Department' element={ <Department />}/>
-        <Route path='/Employee' element={ <Employee />}/>
-      </Routes>
+        <Routes>
+          <Route path='/' element={ <LoginScreen />}/>
+          <Route path='/Department' element={ <Department />}/>
+          <Route path='/Employee' element={ <Employee />}/>
+        </Routes>
+      </div>
     </>
   )
 }

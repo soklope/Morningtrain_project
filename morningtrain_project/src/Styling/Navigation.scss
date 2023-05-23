@@ -1,6 +1,10 @@
 @import './GlobalColors.scss';
 
-.nav-container {
+.desktop-nav-container {
+    display: none;
+}
+
+.mobile-nav-container {
     position: relative;
     display: flex;
     align-items: center;
@@ -8,6 +12,7 @@
     height: 75px;
     width: 100%;
     position: fixed;
+    z-index: 2;
 
     :nth-child(3) {
         margin-left: auto;
@@ -31,15 +36,14 @@
 }
 
 .dropdown-container {
-    top: 75px;
     position: absolute;
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
+    padding-top: 100px;
     padding-left: 22px;
     padding-right: 22px;
     width: 100%;
-    background-color: aqua;
+    height: 100%;
 
     &__headline {
         color: $mt-orange;
@@ -63,7 +67,60 @@
 }
 
 @media screen and (min-width: 1200px) {
-    body {
+    .body-flex {
         display: flex;
+        width: 100%;
+        height: 100vh;
+        padding: 15px;
+    }
+
+    .mobile-nav-container {
+        display: none;
+    }
+
+    .dropdown-container {
+        display: none;
+    }
+
+    .desktop-nav-container {
+        display: flex;
+        gap: 10px;
+        font-size: 18px;
+        flex-direction: column;
+        height: 100%;
+        width: 250px;
+        padding: 30px;
+        background-color: white;
+        filter: drop-shadow(0px 0px 10px #0000003d);
+
+        &__logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h3 {
+            margin-top: 20px;
+        }
+
+        img {
+            width: 120px;
+        }
+
+        &__employee-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-weight: 100;
+        }
+
+        &__profile-name {
+            margin-top: auto;
+        }
+
+        &__log-out {
+            text-decoration: none;
+            color: black;
+        }
     }
 }
