@@ -2,7 +2,7 @@ import React from "react"
 import PrivateGraph from "./PrivateGraph"
 import WorkGraph from "./WorkGraph"
 import Tooltip from '../Navigation/Tooltip'
-
+import UsedTags from "./UsedTags"
 
 export default function Employee() {
     return (
@@ -11,6 +11,7 @@ export default function Employee() {
             <div className="department-container__dapartment-name">placeholder_name</div>
         <PrivateGraph/>
         <WorkGraph/>
+        <UsedTags/>
         </div>
     )
 }

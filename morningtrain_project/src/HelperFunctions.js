@@ -47,3 +47,31 @@ export const getAllTagsInOrder = (employees) => {
 
   return allTags.sort();
 };
+
+export const getLast10WeekNumbers = () => {
+  var weekNumbers = [];
+  var currentDate = new Date();
+
+  for (var i = 0; i < 10; i++) {
+    var weekStartDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - (currentDate.getDay() + 7 * i));
+    var weekNumber = getWeekNumber(weekStartDate);
+    weekNumbers.push(weekNumber.toString());
+  }
+
+  return weekNumbers.reverse();
+}
+
+function getWeekNumber(date) {
+  var target = new Date(date.valueOf());
+  var dayNumber = (date.getUTCDay() + 6) % 7;
+  target.setUTCDate(target.getUTCDate() - dayNumber + 3);
+  var firstThursday = target.valueOf();
+  target.setUTCMonth(0, 1);
+  if (target.getUTCDay() !== 4) {
+    target.setUTCMonth(0, 1 + ((4 - target.getUTCDay()) + 7) % 7);
+  }
+  return 1 + Math.ceil((firstThursday - target) / 604800000);
+}
+
+var last10WeekNumbers = getLast10WeekNumbers();
+console.log(last10WeekNumbers);
