@@ -67,26 +67,22 @@ export default function Header() {
 
                     <h3>AFDELING</h3>
                     <div className="desktop-nav-container__employee-list">
-                            {managerArray.map((manager, index) => (
-                                <Link to='/Department'>
-                                    <div key={index}>{manager.departmentName}</div>
-                                </Link>
-                            ))}
+                        <Link to='/Department'>
+                            <div>{managerArray[0].departmentName}</div>
+                        </Link>
                     </div>
 
                     {isLoggedInAsAdmin ?
                         
                         <>
                             <h3>MEDARBEJDERE</h3>
-                            <Link to="/Employee">
-                                <div className="desktop-nav-container__employee-list">
-                                    {employeeArray.map((employee, index) => (
-                                        <Link to='/Employee'>
-                                            <div key={index}>{employee.employeeName}</div>
-                                        </Link>
-                                    ))}
-                                </div>
-                            </Link>
+                            <div className="desktop-nav-container__employee-list">
+                                {employeeArray.map((employee, index) => (
+                                    <Link to='/Employee'>
+                                        <div key={index}>{employee.employeeName}</div>
+                                    </Link>
+                                ))}
+                            </div>
                         </>
 
                         : 

@@ -4,7 +4,7 @@
     display: none;
 }
 
-.department-container {
+.e-container {
     padding-top: 100px;
     padding-left: 22px;
     padding-right: 22px;
@@ -12,6 +12,28 @@
     display: flex;
     flex-direction: column;
     z-index: 1;
+
+    &__tags {
+        filter: drop-shadow(0px 0px 10px #00000020);
+        background-color: #ffffff;
+        padding: 20px;
+        margin-top: 15px;
+
+        &__title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+
+            &__h1 {
+                font-size: 18px;
+            }
+
+            &__sub {
+                color: $mt-orange;
+            }
+        }
+    }
 
     &__dapartment-name {
         color: $mt-orange;
@@ -28,6 +50,10 @@
         background-color: #ffffff;
         margin-top: 15px;
         padding: 20px;
+
+        &__frame {
+            height: 200px;
+        }
         
         &__flex {
             display: flex;
@@ -57,6 +83,12 @@
 }
 
 @media screen and (min-width: 1200px) {
+
+    .flex {
+        display: flex;
+        gap: 15px;
+    }
+
     .hide-on-desktop {
         display: none;
     }
@@ -65,39 +97,39 @@
         display: block;
     }
 
-    .department-container {
+    .e-container {
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 15%;
         padding: 0px;
+
+        &__tags {
+            max-height: 300px;
+            width: 300px;
+
+            &__title {
+    
+                &__h1 {
+                    font-size: 24px;
+                }
+            }
+        }
 
         &__flex {
             display: flex;
+            gap: 15px;
         }
 
         &__graph {
-            height: 100%;
+            width: 1000px;
 
             &__frame {
-                height: 87.1%;
+                height: 385px;
             }
 
             &__title {
                 font-size: 24px;
             } 
-        }
-
-
-        &__labels {
-            display: flex;
-            width: 100%;
-            justify-content: space-around;
-            padding-left: 30px;
-
-            div {
-                width: 210px;
-                text-align: center;
-            }
         }
     }
 }
