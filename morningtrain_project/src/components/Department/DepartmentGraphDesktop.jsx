@@ -1,9 +1,9 @@
 import { useState} from 'react';
 import Tooltip from '../Navigation/Tooltip';
-import { tagsArray } from '../../db';
-import { extractValuesFromArray } from '../../HelperFunctions';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Legend } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import { countLetterOccurrences } from '../../HelperFunctions';
+import { getAllTagsInOrder } from '../../HelperFunctions';
 
   ChartJS.register(
     CategoryScale,
@@ -14,7 +14,9 @@ import { Bar } from 'react-chartjs-2';
   );
   
 export default function DepartmentGraphDesktop() {
-  const [tagsData] = useState(extractValuesFromArray(tagsArray))
+  const employeeArray = JSON.parse(localStorage.getItem("employeeData"))
+  const [tagsForEachEmployee] = useState(getAllTagsInOrder(employeeArray)) 
+  const [tagsData] = useState(countLetterOccurrences(tagsForEachEmployee))
 
   const options = {
     responsive: true, 

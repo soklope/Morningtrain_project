@@ -1,8 +1,23 @@
-import React from "react";
+import { useEffect } from "react";
 import logo from "../../img/logo.svg"
 import { Link } from "react-router-dom";
+import { employeeArray } from "../../db";
 
 export default function LoginScreen() {
+    useEffect(() => {
+        if (localStorage.getItem('employeeData') === null) {
+            localStorage.setItem('employeeData', JSON.stringify(employeeArray));
+        }
+    }, [])
+
+    const adminLogin = () => {
+        localStorage.setItem('isAdmin', JSON.stringify(true));
+    }
+
+    const empLogin = () => {
+        localStorage.setItem('isAdmin', JSON.stringify(false));
+    }
+
     return (
         <div className="login-page">
             <img className="login-page__logo" src={logo} alt="Logo" />
@@ -17,7 +32,8 @@ export default function LoginScreen() {
                 <p className="login-page__input__help">Glemt kodeord?</p>
             </div>
             
-            <Link className="login-page__button" to='/Department'>Login</Link>
+            <Link onClick={empLogin} className="login-page__button" to='/Department'>Login Emp.</Link>
+            <Link onClick={adminLogin} className="login-page__button" to='/Department'>Login Adm.</Link>
         </div>
     )
 }

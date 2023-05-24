@@ -2,10 +2,10 @@ import chartIcon from "../../img/chart.png"
 import employeeIcon from "../../img/group.png"
 import profileIcon from "../../img/profile.png"
 import mtLogo from "../../img/logo.svg"
-import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
 import Profile from "./Profile";
 import EmployeeList from "../Employee/EmployeeList";
+import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
 import { employeeArray, managerArray } from "../../db";
 
 export default function Header() {
@@ -28,6 +28,8 @@ export default function Header() {
         setOpenProfileTab(false)
     }
 
+    const isLoggedInAsAdmin = JSON.parse(localStorage.getItem('isAdmin'))
+
     if (Location !== '/') {
         return (
             <>
@@ -38,13 +40,20 @@ export default function Header() {
                         </Link>
                     </div>
 
-                    <div className={Location === "/Employee" || openListTab ? "active" : ""}>
-                        <div onClick={listClick}>
-                            <img src={employeeIcon} alt="medarbejdere" />
-                        </div>
-                    </div>
+                    {isLoggedInAsAdmin ?
 
-                    <div className={openProfileTab ? "active" : ""}>
+                        <div className={Location === "/Employee" || openListTab ? "active" : ""}>
+                            <div onClick={listClick}>
+                                <img src={employeeIcon} alt="medarbejdere" />
+                            </div>
+                        </div>
+
+                        : 
+
+                        <></>
+                    }
+
+                    <div className={openProfileTab ? "active mobile-nav-container__profile" : "mobile-nav-container__profile"}>
                         <div onClick={profileClick}>
                             <img src={profileIcon} alt="profil" />
                         </div>
@@ -58,23 +67,46 @@ export default function Header() {
 
                     <h3>AFDELING</h3>
                     <div className="desktop-nav-container__employee-list">
-                        {managerArray.map((manager, index) => (
-                            <div key={index}>{manager.departmentName}</div>
-                        ))}
+                            {managerArray.map((manager, index) => (
+                                <Link to='/Department'>
+                                    <div key={index}>{manager.departmentName}</div>
+                                </Link>
+                            ))}
                     </div>
 
-                    <h3>MEDARBEJDERE</h3>
-                    <div className="desktop-nav-container__employee-list">
-                        {employeeArray.map((employee, index) => (
-                            <div key={index}>{employee.employeeName}</div>
-                        ))}
-                    </div>
+                    {isLoggedInAsAdmin ?
+                        
+                        <>
+                            <h3>MEDARBEJDERE</h3>
+                            <Link to="/Employee">
+                                <div className="desktop-nav-container__employee-list">
+                                    {employeeArray.map((employee, index) => (
+                                        <Link to='/Employee'>
+                                            <div key={index}>{employee.employeeName}</div>
+                                        </Link>
+                                    ))}
+                                </div>
+                            </Link>
+                        </>
 
-                    <div className="desktop-nav-container__profile-name">
-                        {managerArray.map((manager, index) => (
-                            <div key={index}>{manager.managerName}</div>
-                        ))}
-                    </div>
+                        : 
+
+                        <></>
+                    }
+
+                    {isLoggedInAsAdmin ?
+                        
+                        <div className="desktop-nav-container__profile-name">
+                            {managerArray[0].managerName}
+                        </div>
+
+                        : 
+
+                        <div className="desktop-nav-container__profile-name">
+                            {employeeArray[0].employeeName}
+                        </div>
+                    }
+
                     <Link to='/' className="desktop-nav-container__log-out">Log Ud</Link>
                 </nav>
 
