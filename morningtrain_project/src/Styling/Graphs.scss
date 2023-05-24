@@ -1,2 +1,15 @@
 @import './GlobalColors.scss';
 
+.tooltip-container {
+    position:initial;
+    display:flex;
+    flex-direction: column;
+    .tooltip-icon {
+        align-self: end;
+        position: inherit; 
+        z-index: 4;
+        transform: translateY(52px);
+        margin-right:2.5px;
+    }
+}  
+

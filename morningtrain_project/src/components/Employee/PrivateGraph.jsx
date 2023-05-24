@@ -6,11 +6,11 @@ import {
   PointElement,
   LineElement,
   Title,
-  Tooltip,
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import faker from 'faker';
+import Tooltip  from '../Navigation/Tooltip';
 
 ChartJS.register(
   CategoryScale,
@@ -18,12 +18,41 @@ ChartJS.register(
   PointElement,
   LineElement,
   Title,
-  Tooltip,
   Legend
 );
 
+
+
+const canvasBackgroundColor = {
+  id:'canvasBackgroundColor',
+  beforeDraw(Chart, args, pluginOptions){
+    
+  }
+}
+
 export const options = {
-  responsive: true,
+  responsive: true, 
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      display: false
+    },
+    title: {
+      display: true,
+      text:"Trivsel udenfor arbejde",
+      align: 'start',
+    },canvasBackgroundColor: 'red',
+  },
+  scales: {
+    x: {
+      suggestedMin: 0,
+      suggestedMax: 100
+    },
+    y: {
+      suggestedMin: 0,
+      suggestedMax: 100
+  }
+  },
 };
 
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
@@ -42,8 +71,15 @@ export const data = {
 
 export default function PrivateGraph() {
   return (
-  <div className="department-container__graph">
-  <Line options={options} data={data} />
+  <>
+  <div className='tooltip-container'>
+  <Tooltip className="tooltip-icon"/>
+    <div className="department-container__graph">
+      <Line options={options} data={data} />
+      
+    </div>
   </div>
+  
+  </>
   );
 }

@@ -6,11 +6,11 @@ import {
   PointElement,
   LineElement,
   Title,
-  Tooltip,
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import faker from 'faker';
+import Tooltip  from '../Navigation/Tooltip';
 
 ChartJS.register(
   CategoryScale,
@@ -18,12 +18,22 @@ ChartJS.register(
   PointElement,
   LineElement,
   Title,
-  Tooltip,
   Legend
 );
 
 export const options = {
-  responsive: true,
+  responsive: true, 
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false
+      },
+      title: {
+        display: true,
+        text:"Trivsel på arbejde",
+        align: 'start',
+      },
+    }
 };
 
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
@@ -32,7 +42,7 @@ export const data = {
   labels,
   datasets: [
     {
-      label: '',
+      label: 'ugenr',
       data: [1,2,3,4,5,8],
       borderColor: '#15cfa6',
       backgroundColor: '#15cfa6',
@@ -42,8 +52,14 @@ export const data = {
 
 export default function WorkGraph() {
   return (
-  <div className="department-container__graph">
-  <Line options={options} data={data} />
+  <>
+  <div className='tooltip-container'>
+  <Tooltip className="tooltip-icon"/>
+    <div className="department-container__graph">
+      <Line options={options} data={data}/>
+     </div>
   </div>
+  
+  </>
   );
 }
