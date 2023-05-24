@@ -41,7 +41,8 @@ export default function Header() {
     }
 
     const clickEmployee = (employee) => {
-        localStorage.setItem("selectedEmployee", JSON.stringify(employee))
+        // localStorage.setItem("selectedEmployee", JSON.stringify(employee))
+        setEmployee(employee)
     }
 
     const isLoggedInAsAdmin = JSON.parse(localStorage.getItem('isAdmin'))

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Legend } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import Tooltip  from '../Navigation/Tooltip';
@@ -15,9 +15,14 @@ ChartJS.register(
 );
 
 export default function PrivateGraph() {
-  const [clickedEmployeeData, setClickedEmployeeData] = useState([])
   const employee = useEmployeeStore((state) => state.employee);
   const weekData = getLast10WeekNumbers()
+
+  const [employeePrivateData, setEmployeePrivateData] = useState([])
+
+  useEffect(() => {
+    setEmployeePrivateData(employee.privateData)
+}, [employee])
   
   const options = {
     responsive: true, 
@@ -44,16 +49,12 @@ export default function PrivateGraph() {
   
   const labels = weekData;
   
-  const storedObject = localStorage.getItem('selectedEmployee');
-  const parsedObject = JSON.parse(storedObject);
-  const privateData = parsedObject.privateData;
-
   const data = {
     labels,
     datasets: [
       {
         label: '',
-        data: privateData,
+        data: employeePrivateData,
         borderColor: '#15cfa6',
         backgroundColor: '#15cfa6',
       }

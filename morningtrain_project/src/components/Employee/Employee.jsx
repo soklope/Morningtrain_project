@@ -5,16 +5,12 @@ import UsedTags from "./UsedTags"
 import useEmployeeStore from "../../employeeStore"
 
 export default function Employee() {
+    const [selectedEmployee, setSelectedEmployee] = useState("PLACEHOLDER_NAME")
+    const employee = useEmployeeStore((state) => state.employee);
 
-    if (localStorage.getItem('selectedEmployee') === null) return null
-    
-    const [selectedEmployee, setSelectedEmployee] = useState("")
-
-    useEffect(() => {  
-        const storedObject = localStorage.getItem('selectedEmployee'); 
-        const parsedObject = JSON.parse(storedObject);
-        setSelectedEmployee(parsedObject.name);
-    }, []) 
+    useEffect(() => {
+        setSelectedEmployee(employee.name)
+    }, [employee])
 
     return ( 
         <div className="e-container">

@@ -1,17 +1,10 @@
-import React from 'react';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Legend,
-} from 'chart.js';
+import { useState, useEffect } from "react"
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Legend } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import faker from 'faker';
 import Tooltip  from '../Navigation/Tooltip';
 import { getLast10WeekNumbers } from '../../HelperFunctions';
+import useEmployeeStore from '../../employeeStore';
 
 ChartJS.register(
   CategoryScale,
@@ -23,7 +16,14 @@ ChartJS.register(
 );
 
 export default function PrivateGraph() {
- const weekData = getLast10WeekNumbers()
+  const weekData = getLast10WeekNumbers()
+  const employee = useEmployeeStore((state) => state.employee);
+  const [employeeWorkData, setEmployeeWorkData] = useState([])
+
+  useEffect(() => {
+    console.log(employee);
+    setEmployeeWorkData(employee.workData)
+}, [employee])
   
    const options = {
     responsive: true, 
@@ -51,17 +51,13 @@ export default function PrivateGraph() {
   };
   
   const labels = weekData;
-
-  const storedObject = localStorage.getItem('selectedEmployee');
-  const parsedObject = JSON.parse(storedObject);
-  const workData = parsedObject.workData;
   
  const data = {
     labels,
     datasets: [
       {
         label: '',
-        data: workData,
+        data: employeeWorkData,
         borderColor: '#15cfa6',
         backgroundColor: '#15cfa6',
       }
