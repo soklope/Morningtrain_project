@@ -74,4 +74,3 @@ function getWeekNumber(date) {
 }
 
 var last10WeekNumbers = getLast10WeekNumbers();
-console.log(last10WeekNumbers);

@@ -30,7 +30,6 @@ ChartJS.register(
 
 export default function PrivateGraph() {
  const weekData = getLast10WeekNumbers()
- console.log(weekData)
  const canvasBackgroundColor = {
     id:'canvasBackgroundColor',
     beforeDraw(Chart, args, pluginOptions){
@@ -89,7 +88,7 @@ export default function PrivateGraph() {
             headline={"AFDELINGSGRAF"} 
             input={"Denne graf viser en oversigt over de tags, afdelingen har angivet de sidste 10 uger."}
             input2={"Dette kunne måske være relevant at snakke om,til næste OKR møde."}
-            />
+          />
         </div>
 
         <div className='e-container__graph__frame'>

@@ -3,6 +3,8 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 import { Line } from 'react-chartjs-2';
 import Tooltip  from '../Navigation/Tooltip';
 import { getLast10WeekNumbers } from '../../HelperFunctions';
+import useEmployeeStore from '../../employeeStore';
+
 
 ChartJS.register(
   CategoryScale,
@@ -14,8 +16,9 @@ ChartJS.register(
 );
 
 export default function PrivateGraph() {
+  const employee = useEmployeeStore((state) => state.employee);
+
  const weekData = getLast10WeekNumbers()
- console.log(weekData)
  const canvasBackgroundColor = {
     id:'canvasBackgroundColor',
     beforeDraw(Chart, args, pluginOptions){

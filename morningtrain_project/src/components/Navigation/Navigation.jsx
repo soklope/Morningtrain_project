@@ -7,11 +7,15 @@ import EmployeeList from "../Employee/EmployeeList";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { employeeArray, managerArray } from "../../db";
+import useEmployeeStore from "../../employeeStore";
 
 export default function Header() {
     const [openProfileTab, setOpenProfileTab] = useState(false)
     const [openListTab, setOpenListTab] = useState(false)
     const Location = useLocation().pathname
+
+    const employee = useEmployeeStore((state) => state.employee);
+    const setEmployee = useEmployeeStore((state) => state.setEmployee);
 
     const listClick = () => {
         setOpenListTab(!openListTab)
@@ -26,6 +30,10 @@ export default function Header() {
     const departmentClick = () => {
         setOpenListTab(false)
         setOpenProfileTab(false)
+    }
+
+    const clickEmployee = (employee) => {
+        setEmployee(employee)
     }
 
     const isLoggedInAsAdmin = JSON.parse(localStorage.getItem('isAdmin'))
@@ -79,7 +87,7 @@ export default function Header() {
                             <div className="desktop-nav-container__employee-list">
                                 {employeeArray.map((employee, index) => (
                                     <Link to='/Employee'>
-                                        <div key={index}>{employee.employeeName}</div>
+                                        <button onClick={() => clickEmployee(employee)} key={index}>{employee.employeeName}</button>
                                     </Link>
                                 ))}
                             </div>
