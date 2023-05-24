@@ -1,25 +1,28 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import PrivateGraph from "./PrivateGraph"
 import WorkGraph from "./WorkGraph"
 import UsedTags from "./UsedTags"
 import useEmployeeStore from "../../employeeStore"
 
 export default function Employee() {
-    const employee = useEmployeeStore((state) => state.employee);
 
-    return (
+    if (localStorage.getItem('selectedEmployee') === null) return null
+    
+    const [selectedEmployee, setSelectedEmployee] = useState("")
+
+    useEffect(() => {  
+        const storedObject = localStorage.getItem('selectedEmployee'); 
+        const parsedObject = JSON.parse(storedObject);
+        setSelectedEmployee(parsedObject.name);
+    }, []) 
+
+    return ( 
         <div className="e-container">
             <p>MEDARBEJDER</p>
-
-            {employee ?
-                <div className="e-container__dapartment-name">{employee.employeeName}</div>
-            : 
-                <div className="e-container__dapartment-name">Placeholder</div>
-            }
-
+            <div className="e-container__dapartment-name">{selectedEmployee}</div>   
             <div className="flex">
                 <div>
-                    <PrivateGraph/>
+                    <PrivateGraph/> 
                     <WorkGraph/>
                 </div>
 

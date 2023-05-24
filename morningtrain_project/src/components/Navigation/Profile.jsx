@@ -15,7 +15,7 @@ export default function Profile( {open} ) {
                 isLoggedInAsAdmin ? 
                     <p className="dropdown-container__headline">{managerArray[0].managerName}</p>
                 :
-                    <p className="dropdown-container__headline">{employeeArray[0].employeeName}</p>
+                    <p className="dropdown-container__headline">{employeeArray[0].name}</p>
             }
 
             {

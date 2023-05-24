@@ -1,10 +1,9 @@
-import React from 'react';
+import { useState } from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Legend } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import Tooltip  from '../Navigation/Tooltip';
 import { getLast10WeekNumbers } from '../../HelperFunctions';
 import useEmployeeStore from '../../employeeStore';
-
 
 ChartJS.register(
   CategoryScale,
@@ -16,17 +15,11 @@ ChartJS.register(
 );
 
 export default function PrivateGraph() {
+  const [clickedEmployeeData, setClickedEmployeeData] = useState([])
   const employee = useEmployeeStore((state) => state.employee);
-
- const weekData = getLast10WeekNumbers()
- const canvasBackgroundColor = {
-    id:'canvasBackgroundColor',
-    beforeDraw(Chart, args, pluginOptions){
-      
-    }
-  }
+  const weekData = getLast10WeekNumbers()
   
-   const options = {
+  const options = {
     responsive: true, 
     maintainAspectRatio: false,
     plugins: {
@@ -45,30 +38,35 @@ export default function PrivateGraph() {
       y: {
         suggestedMin: 0,
         suggestedMax: 100
-    }
+      }
     },
   };
   
   const labels = weekData;
   
- const data = {
+  const storedObject = localStorage.getItem('selectedEmployee');
+  const parsedObject = JSON.parse(storedObject);
+  const privateData = parsedObject.privateData;
+
+  const data = {
     labels,
     datasets: [
       {
         label: '',
-        data: [1,2,3,4,5,8],
+        data: privateData,
         borderColor: '#15cfa6',
         backgroundColor: '#15cfa6',
       }
     ],
   };
+
   
   return (
     <>
       <div className="e-container__graph">
           <div className='e-container__graph__flex'>
             <div>
-              <div className='e-container__graph__title'>TRIVSEL PÅ ARBEJDET</div>
+              <div className='e-container__graph__title'>TRIVSEL UDEN FOR ARBEJDET</div>
               <div className='e-container__graph__sub'>SIDSTE 10 UGER</div>
             </div>
             <Tooltip 

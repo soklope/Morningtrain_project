@@ -5,7 +5,7 @@ import mtLogo from "../../img/logo.svg"
 import Profile from "./Profile";
 import EmployeeList from "../Employee/EmployeeList";
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { employeeArray, managerArray } from "../../db";
 import useEmployeeStore from "../../employeeStore";
 
@@ -13,6 +13,14 @@ export default function Header() {
     const [openProfileTab, setOpenProfileTab] = useState(false)
     const [openListTab, setOpenListTab] = useState(false)
     const Location = useLocation().pathname
+    const [localStorageArray, setLocalStorageArray] = useState([])
+
+    useEffect(() => {
+        if (localStorage.getItem('employeeData') !== null) {
+            setLocalStorageArray(JSON.parse(localStorage.getItem('employeeData')))
+        }
+    }, [])
+
 
     const employee = useEmployeeStore((state) => state.employee);
     const setEmployee = useEmployeeStore((state) => state.setEmployee);
@@ -33,7 +41,7 @@ export default function Header() {
     }
 
     const clickEmployee = (employee) => {
-        setEmployee(employee)
+        localStorage.setItem("selectedEmployee", JSON.stringify(employee))
     }
 
     const isLoggedInAsAdmin = JSON.parse(localStorage.getItem('isAdmin'))
@@ -85,9 +93,9 @@ export default function Header() {
                         <>
                             <h3>MEDARBEJDERE</h3>
                             <div className="desktop-nav-container__employee-list">
-                                {employeeArray.map((employee, index) => (
+                                {localStorageArray.map((employee, index) => (
                                     <Link to='/Employee'>
-                                        <button onClick={() => clickEmployee(employee)} key={index}>{employee.employeeName}</button>
+                                        <div onClick={() => clickEmployee(employee)} key={index}>{employee.name}</div>
                                     </Link>
                                 ))}
                             </div>
@@ -107,7 +115,7 @@ export default function Header() {
                         : 
 
                         <div className="desktop-nav-container__profile-name">
-                            {employeeArray[0].employeeName}
+                            {employeeArray[0].name}
                         </div>
                     }
 

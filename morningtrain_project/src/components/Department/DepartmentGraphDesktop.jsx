@@ -1,4 +1,4 @@
-import { useState} from 'react';
+import { useState } from 'react';
 import Tooltip from '../Navigation/Tooltip';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Legend } from 'chart.js';
 import { Bar } from 'react-chartjs-2';

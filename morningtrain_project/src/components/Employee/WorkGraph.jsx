@@ -13,8 +13,6 @@ import faker from 'faker';
 import Tooltip  from '../Navigation/Tooltip';
 import { getLast10WeekNumbers } from '../../HelperFunctions';
 
-
-
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -24,18 +22,8 @@ ChartJS.register(
   Legend
 );
 
-
-
-
-
 export default function PrivateGraph() {
  const weekData = getLast10WeekNumbers()
- const canvasBackgroundColor = {
-    id:'canvasBackgroundColor',
-    beforeDraw(Chart, args, pluginOptions){
-      
-    }
-  }
   
    const options = {
     responsive: true, 
@@ -63,13 +51,17 @@ export default function PrivateGraph() {
   };
   
   const labels = weekData;
+
+  const storedObject = localStorage.getItem('selectedEmployee');
+  const parsedObject = JSON.parse(storedObject);
+  const workData = parsedObject.workData;
   
  const data = {
     labels,
     datasets: [
       {
         label: '',
-        data: [1,2,3,4,5,8],
+        data: workData,
         borderColor: '#15cfa6',
         backgroundColor: '#15cfa6',
       }
