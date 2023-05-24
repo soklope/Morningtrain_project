@@ -29,6 +29,16 @@
         margin-top: 15px;
         padding: 20px;
 
+        &__flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &__title {
+            font-size: 18px;
+        } 
+
         &__li {
             display: flex;
             gap: 10px;
@@ -61,8 +71,12 @@
             height: 100%;
 
             &__frame {
-                height: 76.5vh;
+                height: 87.1%;
             }
+
+            &__title {
+                font-size: 24px;
+            } 
         }
 
 

@@ -1,25 +1,22 @@
-import React from 'react';
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend,
-  } from 'chart.js';
-  import { Bar } from 'react-chartjs-2';
-  import faker from 'faker';
+import { useState } from 'react';
+import Tooltip from '../Navigation/Tooltip';
+import { tagsArray } from '../../db';
+import { extractValuesFromArray } from '../../HelperFunctions';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Legend } from 'chart.js';
+import { Bar } from 'react-chartjs-2';
 
   ChartJS.register(
     CategoryScale,
     LinearScale,
     BarElement,
     Title,
-    Tooltip,
     Legend
   );
   
+export default function DepartmentGraphMobile() {
+
+  const [tagsData] = useState(extractValuesFromArray(tagsArray))
+
   const options = {
     responsive: true, 
     maintainAspectRatio: false,
@@ -39,17 +36,28 @@ import {
     labels,
     datasets: [
       {
-        data: [1, 2, 3, 4, 5],
+        data: tagsData,
         backgroundColor: '#FF9333',
         barPercentage: 0.3,
       },
     ],
   };
 
-export default function DepartmentGraphMobile() {
-    return (
-        <div className="department-container__graph">
-            <Bar options={options} data={data} />
-        </div>
-    )
+  return (
+    <div className="department-container__graph">
+      <div className='department-container__graph__flex'>
+        <div className='department-container__graph__title'>ANVENDTE TAGS</div>
+        <Tooltip 
+          headline={"AFDELINGSGRAF"} 
+          input={"Denne graf viser en oversigt over de tags, afdelingen har angivet de sidste 10 uger."}
+          input2={"Dette kunne måske være relevant at snakke om,til næste OKR møde."}
+          />
+      </div>
+
+      <div>
+        <Bar options={options} data={data} />
+      </div>
+
+    </div>
+  )
 }

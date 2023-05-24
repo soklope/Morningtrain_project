@@ -1,0 +1,33 @@
+@import './GlobalColors.scss';
+
+.tooltip-icon {
+    position: relative;
+
+    img {
+        cursor: pointer;
+    }
+
+    &__show {
+        padding: 10px;
+        position: absolute;
+        right: 20px;
+        background-color: rgb(255, 255, 255);
+        filter: drop-shadow(0px 0px 10px #00000030);
+        width: 320px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        font-size: 16px;
+
+        h4 {
+            letter-spacing: 1.5px;
+            color: $mt-orange;
+            font-size: 24px;
+        }
+    }
+
+    &__hide {
+        display: none;
+    }
+}
