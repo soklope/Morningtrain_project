@@ -17,7 +17,6 @@ export default function Header() {
 
     const employee = useEmployeeStore((state) => state.employee);
     const setEmployee = useEmployeeStore((state) => state.setEmployee);
-
     const dropdownValue = useDropdownStore((state) => state.dropdownValue);
     const setDropdownValue = useDropdownStore((state) => state.setDropdownValue);
     
@@ -49,7 +48,7 @@ export default function Header() {
             <>
                 <nav className="mobile-nav-container">
                     <div className={dropdownValue || openProfileTab || Location === "/Employee" ? "" : "active"} onClick={departmentClick}>
-                        <Link to='/Department'>
+                        <Link to='/Department' >
                             <img src={chartIcon} alt="afdeling" />
                         </Link>
                     </div>
@@ -83,8 +82,8 @@ export default function Header() {
                         <>
                             <h3>AFDELING</h3>
                             <div className="desktop-nav-container__employee-list">
-                                <Link to='/Department'>
-                                    <div>{managerArray[0].departmentName}</div>
+                                <Link to='/Department' style={{ textDecoration: 'none' }}>
+                                    <div style={Location === "/Department" ? { color: '#FF9333' } : { color: '#000000' }}>{managerArray[0].departmentName}</div>
                                 </Link>
                             </div>
                         </>
@@ -99,12 +98,11 @@ export default function Header() {
                             <h3>MEDARBEJDERE</h3>
                             <div className="desktop-nav-container__employee-list">
                                 {employeeArray.map((employee, index) => (
-                                    <Link to='/Employee' key={index}>
+                                    <Link to='/Employee' key={index} style={{ textDecoration: 'none' }}>
                                         <div onClick={() => clickEmployee(employee)}>{employee.name}</div>
                                     </Link>
                                 ))}
                             </div>
-
 
                         </>
 

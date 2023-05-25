@@ -23,7 +23,7 @@ export default function EmployeeList() {
 
             <div className="dropdown-container__employees">
                 {employeeArray.map((employee, index) => (
-                    <Link to='/Employee' key={index}>
+                    <Link to='/Employee' key={index} style={{ textDecoration: 'none' }}>
                         <div onClick={() => clickEmployee(employee)}>{employee.name}</div>
                     </Link>
                 ))}
