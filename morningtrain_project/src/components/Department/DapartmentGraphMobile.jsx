@@ -4,6 +4,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Legend
 import { Bar } from 'react-chartjs-2';
 import { countLetterOccurrences } from '../../HelperFunctions';
 import { getAllTagsInOrder } from '../../HelperFunctions';
+import { employeeArray } from '../../db';
 
   ChartJS.register(
     CategoryScale,
@@ -14,7 +15,6 @@ import { getAllTagsInOrder } from '../../HelperFunctions';
   );
   
 export default function DepartmentGraphMobile() {
-  const employeeArray = JSON.parse(localStorage.getItem("employeeData"))
   const [tagsForEachEmployee] = useState(getAllTagsInOrder(employeeArray)) 
   const [tagsData] = useState(countLetterOccurrences(tagsForEachEmployee))
 

@@ -1,10 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { employeeArray, managerArray } from "../../db";
+import useDropdownStore from "../../dropdownStore";
 
 export default function Profile( {open} ) {
 
     const isLoggedInAsAdmin = JSON.parse(localStorage.getItem('isAdmin'))
+
+    const dropdownValue = useDropdownStore((state) => state.dropdownValue);
+    const setDropdownValue = useDropdownStore((state) => state.setDropdownValue);
+
+    const clickLogOut = () => {
+        setDropdownValue(false);
+    }
 
     if(!open) return null
 
@@ -25,7 +33,7 @@ export default function Profile( {open} ) {
                    <p>{employeeArray[0].position}</p>
             }
 
-            <Link className="login-page__button" to='/'>Log Ud</Link>
+            <Link className="login-page__button" to='/' onClick={clickLogOut}>Log Ud</Link>
         </div>
     )
 }

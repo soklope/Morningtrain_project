@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react"
+import React from "react"
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Legend } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import faker from 'faker';
 import Tooltip  from '../Navigation/Tooltip';
 import { getLast10WeekNumbers } from '../../HelperFunctions';
 import useEmployeeStore from '../../employeeStore';
@@ -18,12 +17,6 @@ ChartJS.register(
 export default function PrivateGraph() {
   const weekData = getLast10WeekNumbers()
   const employee = useEmployeeStore((state) => state.employee);
-  const [employeeWorkData, setEmployeeWorkData] = useState([])
-
-  useEffect(() => {
-    console.log(employee);
-    setEmployeeWorkData(employee.workData)
-}, [employee])
   
    const options = {
     responsive: true, 
@@ -57,7 +50,7 @@ export default function PrivateGraph() {
     datasets: [
       {
         label: '',
-        data: employeeWorkData,
+        data: employee.workData,
         borderColor: '#15cfa6',
         backgroundColor: '#15cfa6',
       }

@@ -5,43 +5,40 @@ import mtLogo from "../../img/logo.svg"
 import Profile from "./Profile";
 import EmployeeList from "../Employee/EmployeeList";
 import { Link, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { employeeArray, managerArray } from "../../db";
 import useEmployeeStore from "../../employeeStore";
+import useDropdownStore from "../../dropdownStore";
 
 export default function Header() {
     const [openProfileTab, setOpenProfileTab] = useState(false)
     const [openListTab, setOpenListTab] = useState(false)
     const Location = useLocation().pathname
-    const [localStorageArray, setLocalStorageArray] = useState([])
-
-    useEffect(() => {
-        if (localStorage.getItem('employeeData') !== null) {
-            setLocalStorageArray(JSON.parse(localStorage.getItem('employeeData')))
-        }
-    }, [])
-
 
     const employee = useEmployeeStore((state) => state.employee);
     const setEmployee = useEmployeeStore((state) => state.setEmployee);
 
-    const listClick = () => {
-        setOpenListTab(!openListTab)
+    const dropdownValue = useDropdownStore((state) => state.dropdownValue);
+    const setDropdownValue = useDropdownStore((state) => state.setDropdownValue);
+    
+    const handleToggle = () => {
+        setDropdownValue(!dropdownValue);
         setOpenProfileTab(false)
-    }
+    };
 
     const profileClick = () => {
+        setDropdownValue(false);
         setOpenProfileTab(!openProfileTab)
         setOpenListTab(false)
     }
 
     const departmentClick = () => {
+        setDropdownValue(false);
         setOpenListTab(false)
         setOpenProfileTab(false)
     }
 
     const clickEmployee = (employee) => {
-        // localStorage.setItem("selectedEmployee", JSON.stringify(employee))
         setEmployee(employee)
     }
 
@@ -51,7 +48,7 @@ export default function Header() {
         return (
             <>
                 <nav className="mobile-nav-container">
-                    <div className={openListTab || openProfileTab || Location === "/Employee" ? "" : "active"} onClick={departmentClick}>
+                    <div className={dropdownValue || openProfileTab || Location === "/Employee" ? "" : "active"} onClick={departmentClick}>
                         <Link to='/Department'>
                             <img src={chartIcon} alt="afdeling" />
                         </Link>
@@ -59,8 +56,8 @@ export default function Header() {
 
                     {isLoggedInAsAdmin ?
 
-                        <div className={Location === "/Employee" || openListTab ? "active" : ""}>
-                            <div onClick={listClick}>
+                        <div className={Location === "/Employee" || dropdownValue ? "active" : ""}>
+                            <div onClick={handleToggle}>
                                 <img src={employeeIcon} alt="medarbejdere" />
                             </div>
                         </div>
@@ -82,24 +79,33 @@ export default function Header() {
                         <img src={mtLogo} alt="afdeling"/>
                     </Link>
 
-                    <h3>AFDELING</h3>
-                    <div className="desktop-nav-container__employee-list">
-                        <Link to='/Department'>
-                            <div>{managerArray[0].departmentName}</div>
-                        </Link>
-                    </div>
+                    { isLoggedInAsAdmin ?
+                        <>
+                            <h3>AFDELING</h3>
+                            <div className="desktop-nav-container__employee-list">
+                                <Link to='/Department'>
+                                    <div>{managerArray[0].departmentName}</div>
+                                </Link>
+                            </div>
+                        </>
+                    :
+                        <></>
+                    }
+
 
                     {isLoggedInAsAdmin ?
                         
                         <>
                             <h3>MEDARBEJDERE</h3>
                             <div className="desktop-nav-container__employee-list">
-                                {localStorageArray.map((employee, index) => (
-                                    <Link to='/Employee'>
-                                        <div onClick={() => clickEmployee(employee)} key={index}>{employee.name}</div>
+                                {employeeArray.map((employee, index) => (
+                                    <Link to='/Employee' key={index}>
+                                        <div onClick={() => clickEmployee(employee)}>{employee.name}</div>
                                     </Link>
                                 ))}
                             </div>
+
+
                         </>
 
                         : 
