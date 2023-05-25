@@ -7,17 +7,23 @@ import PrivateGraph from "../Employee/PrivateGraph";
 import WorkGraph from "../Employee/WorkGraph"
 import UsedTags from "../Employee/UsedTags"
 import Modal from "../Modal/Modal";
+import useModalStore from "../../modalStore";
 
 export default function Department() {
 
     const isLoggedInAsAdmin = JSON.parse(localStorage.getItem("isAdmin"))
+    const modalStore = useModalStore((state) => state.modalValue);
 
     return (
         <div className="department-container">
-            <div>
-                <Modal/>
-            </div>
-            
+
+            { !isLoggedInAsAdmin && modalStore ?
+                <div className='modal'>
+                    <Modal />
+                </div>
+            :
+                <></>
+            }
 
             { isLoggedInAsAdmin ?
                 <p>AFDELING</p>

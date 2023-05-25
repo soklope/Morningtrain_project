@@ -25,7 +25,6 @@ export default function Employee() {
 
                 <div>
                     <UsedTags/>
-                    <div className="modal"></div>
                 </div>
                 
             </div>
