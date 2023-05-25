@@ -3,9 +3,7 @@ import { managerArray, employeeArray } from "../../db";
 import DepartmentGraphMobile from "./DapartmentGraphMobile";
 import MobileGraphDesc from "./MobileGraphDesc";
 import DepartmentGraphDesktop from "./DepartmentGraphDesktop";
-import PrivateGraph from "../Employee/PrivateGraph";
-import WorkGraph from "../Employee/WorkGraph"
-import UsedTags from "../Employee/UsedTags"
+import Modal from "../Modal/Modal";
 
 export default function Department() {
 
@@ -13,6 +11,13 @@ export default function Department() {
 
     return (
         <div className="department-container">
+            <div>
+                <Modal/>
+            </div>
+            <p>AFDELING</p>
+            {managerArray.map((manager, index) => (
+                <div className="department-container__dapartment-name" key={index}>{manager.departmentName}</div>
+            ))}
 
             { isLoggedInAsAdmin ?
                 <p>AFDELING</p>

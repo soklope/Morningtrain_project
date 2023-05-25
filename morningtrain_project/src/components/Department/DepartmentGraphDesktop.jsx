@@ -49,7 +49,7 @@ export default function DepartmentGraphDesktop() {
         <div className='department-container__graph__flex'>
           <div className='department-container__graph__title'>ANVENDTE TAGS - DE SIDSTE 10 UGER</div>
           <Tooltip 
-            headline={"AFDELINGSGRAF"} 
+            headline={"HYPPIGSTE TAGS"} 
             input={"Denne graf viser en oversigt over de tags, afdelingen har angivet de sidste 10 uger."}
             input2={"Dette kunne måske være relevant at snakke om,til næste OKR møde."}
           />

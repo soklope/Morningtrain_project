@@ -13,8 +13,8 @@ export default function UsedTags() {
                 <div className="e-container__tags__title__sub">DE SIDSTE 10 UGER</div>
             </div>
             <Tooltip 
-            headline={"AFDELINGSGRAF"} 
-            input={"Denne graf viser en oversigt over de tags, afdelingen har angivet de sidste 10 uger."}
+            headline={"ANVENDTE TAGS"} 
+            input={"Denne graf viser en oversigt over de tags, *PLACEHOLDER_NAME* har angivet de sidste 10 uger."}
             input2={"Dette kunne måske være relevant at snakke om,til næste OKR møde."}
             />
         </div>

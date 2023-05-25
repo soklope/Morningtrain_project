@@ -65,8 +65,8 @@ export default function PrivateGraph() {
               <div className='e-container__graph__sub'>SIDSTE 10 UGER</div>
             </div>
             <Tooltip 
-              headline={"AFDELINGSGRAF"} 
-              input={"Denne graf viser en oversigt over de tags, afdelingen har angivet de sidste 10 uger."}
+              headline={"TRIVSEL UDENFOR ARBEJDE"} 
+              input={"Denne graf viser trivsel udenfor arbejde, *PLACEHOLDER_NAME* har angivet de sidste 10 uger."}
               input2={"Dette kunne måske være relevant at snakke om,til næste OKR møde."}
               />
           </div>
