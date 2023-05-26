@@ -1,3 +1,4 @@
+
 export const employeeArray = [
     {
         name: "John Deez",
@@ -6,8 +7,8 @@ export const employeeArray = [
             "Jeg savner frihed til at beslutte hvornår og hvordan jeg udfører mit arbejde", 
             "Jeg kan ikke følge mine opgaver til ende"
         ],
-        workData: [42, 7, 99, 15, 84, 3, 56, 28, 91, 64],
-        privateData: [52, 71, 42, 8, 16, 89, 63, 77, 26, 81],
+        workData: [50, 61, 56, 43, 60, 52, 46, 59, 41, 63],
+        privateData: [62, 54, 42, 58, 44, 47, 65, 49, 53, 45],
         position: "Developer"
     },
     {
@@ -18,8 +19,8 @@ export const employeeArray = [
             "Mit arbejde føles overflødigt", 
             "Mit arbejde er enkelt og repetitivt"
         ],
-        workData: [80, 50, 30, 84, 59, 47, 55, 36, 65, 17],
-        privateData: [32, 56, 78, 5, 17, 99, 61, 40, 15, 51],
+        workData: [64, 61, 48, 59, 57, 40, 50, 43, 55, 46],
+        privateData: [57, 41, 52, 63, 45, 60, 51, 64, 44, 47],
         position: "Manager"
     },
     {
@@ -32,11 +33,19 @@ export const employeeArray = [
             "Mit arbejde er enkelt og repetitivt", 
             "Jeg mangler feedback på om jeg gør mit arbejde godt"
         ],
-        workData: [47, 67, 39, 79, 24, 68, 33, 2, 81, 10],
-        privateData: [20, 69, 45, 81, 27, 9, 59, 78, 14, 96],
+        workData: [62, 42, 53, 65, 58, 51, 46, 56, 43, 40],
+        privateData: [60, 44, 61, 48, 52, 63, 42, 59, 49, 57],
         position: "Sale"
     }
 ];
+
+export const tagsArray = [
+    "Jeg savner frihed til at beslutte hvornår og hvordan jeg udfører mit arbejde", 
+    "Mit arbejde føles overflødigt", 
+    "Jeg kan ikke følge mine opgaver til ende", 
+    "Mit arbejde er enkelt og repetitivt", 
+    "Jeg mangler feedback på om jeg gør mit arbejde godt"
+]
 
 export const managerArray = [
     {

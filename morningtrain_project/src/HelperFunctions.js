@@ -74,3 +74,5 @@ function getWeekNumber(date) {
 }
 
 var last10WeekNumbers = getLast10WeekNumbers();
+
+export const getRecentWorkData = (workData) => workData.slice(-10)

@@ -4,6 +4,7 @@ import { Line } from 'react-chartjs-2';
 import Tooltip  from '../Navigation/Tooltip';
 import { getLast10WeekNumbers } from '../../HelperFunctions';
 import useEmployeeStore from '../../employeeStore';
+import { getRecentWorkData } from "../../HelperFunctions";
 
 ChartJS.register(
   CategoryScale,
@@ -50,7 +51,7 @@ export default function PrivateGraph() {
     datasets: [
       {
         label: '',
-        data: employee.workData,
+        data: getRecentWorkData(employee.workData),
         borderColor: '#15cfa6',
         backgroundColor: '#15cfa6',
       }

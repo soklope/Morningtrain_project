@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import useEmployeeStore from "../../employeeStore";
 import coffee from "../../img/coffee.png"
 import useModalStore from "../../modalStore";
+import Tags from "./Tags";
 
 export default function SliderWithPercentage() {
   const [value, setValue] = useState(50);
@@ -55,6 +56,7 @@ export default function SliderWithPercentage() {
     employee.workData.push(Number(value))
     console.log(employee.workData);
     setStepOneComplete(true)
+    setValue(50)
   }
 
   const nextButton2WasClicked = () => {
@@ -125,11 +127,7 @@ export default function SliderWithPercentage() {
           <p className="modal-container-content__orange-text">Dette skridt er valgfrit</p>
 
           <div className="modal-container-content__tags-container">
-            <div className="modal-container-content__tags">Mit arbejde føles overflødigt</div>
-            <div className="modal-container-content__tags">Jeg kan ikke følge mine opgaver til ende</div>
-            <div className="modal-container-content__tags">Mit arbejde er enkelt og repetitivt</div>
-            <div className="modal-container-content__tags">Jeg savner frihed til at beslutte hvornår og hvordan jeg udfører mit arbejde</div>
-            <div className="modal-container-content__tags">Jeg mangler feedback på om jeg gør mit arbejde godt</div>
+            <Tags />
           </div>
 
           <button onClick={nextButton3WasClicked} className="modal__button">Næste</button>
