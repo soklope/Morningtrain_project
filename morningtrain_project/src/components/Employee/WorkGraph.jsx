@@ -30,8 +30,9 @@ export default function PrivateGraph() {
         display: false,
         text:"Trivsel udenfor arbejde",
         align: 'start',
-      },canvasBackgroundColor: 'red',
+      },
     },
+
     scales: {
       x: {
         suggestedMin: 0,
@@ -40,7 +41,7 @@ export default function PrivateGraph() {
       y: {
         suggestedMin: 0,
         suggestedMax: 100
-    }
+      }
     },
   };
   
@@ -68,8 +69,8 @@ export default function PrivateGraph() {
           </div>
           <Tooltip 
             headline={"TRIVSEL PÅ ARBEJDE"} 
-            input={"Denne graf viser trivsel på arrbejdet, *PLACEHOLDER_NAME* har angivet de sidste 10 uger."}
-            input2={"Dette kunne måske være relevant at snakke om,til næste OKR møde."}
+            input={"Den graf viser en oversigt over medarbejderens angivne trivsel på arbejdet"}
+            input2={"Dette kunne måske være relevant at snakke om, til næste 1 til 1 samtale."}
           />
         </div>
 

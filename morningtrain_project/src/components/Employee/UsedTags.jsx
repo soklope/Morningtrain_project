@@ -14,8 +14,8 @@ export default function UsedTags() {
             </div>
             <Tooltip 
             headline={"ANVENDTE TAGS"} 
-            input={"Denne graf viser en oversigt over de tags, *PLACEHOLDER_NAME* har angivet de sidste 10 uger."}
-            input2={"Dette kunne måske være relevant at snakke om,til næste OKR møde."}
+            input={"Her vises der en oversigt over de udsagn, medarbejderen har anvendt"}
+            input2={"Dette kunne måske være relevant at snakke om, til næste 1 til 1 samtale."}
             />
         </div>
 

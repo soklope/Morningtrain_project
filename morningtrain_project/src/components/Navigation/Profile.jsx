@@ -7,7 +7,6 @@ export default function Profile( {open} ) {
 
     const isLoggedInAsAdmin = JSON.parse(localStorage.getItem('isAdmin'))
 
-    const dropdownValue = useDropdownStore((state) => state.dropdownValue);
     const setDropdownValue = useDropdownStore((state) => state.setDropdownValue);
 
     const clickLogOut = () => {

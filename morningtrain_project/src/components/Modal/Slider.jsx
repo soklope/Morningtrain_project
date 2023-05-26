@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useEmployeeStore from "../../employeeStore";
 import coffee from "../../img/coffee.png"
+import chore from "../../img/chore.png"
 import useModalStore from "../../modalStore";
 import Tags from "./Tags";
 
@@ -30,21 +31,19 @@ export default function SliderWithPercentage() {
     return `rgb(${red}, ${green}, ${blue})`;
   };
 
-  const [sliderText, setSliderText] = useState("Jeg trives ok i hverdagen")
-
-  const bad = "Jeg trives ikke godt i hverdagen"
-  const ok = "Jeg trives ok i hverdagen"
-  const good = `Jeg trives godt i hverdagen`
+  const [word, setWord] = useState("")
+  const [colorClass, setColorClass] = useState('');
 
   useEffect(() => {
     if(value >= 75) {
-      setSliderText(good)
-
+      setWord("godt")
+      setColorClass('green');
     } else if (value < 75 && value >= 50) {
-      setSliderText(ok)
-
+      setWord("udemærket")
+      setColorClass('yellow');
     } else {
-      setSliderText(bad) 
+      setWord("ikke godt")
+      setColorClass('red');
     } 
   }, [value])
 
@@ -66,8 +65,6 @@ export default function SliderWithPercentage() {
   }
 
   const nextButton3WasClicked = () => {
-    // employee.privateData.push(Number(value))
-    // console.log(employee.privateData);
     setStepThreeComplete(true)
   }
 
@@ -87,10 +84,12 @@ export default function SliderWithPercentage() {
               {value}%
             </p>
 
-            <input type="range" min={0} max={100} step={1} value={value} onChange={updatePercentage}/>
+              <input type="range" min={0} max={100} step={1} value={value} onChange={updatePercentage}/>
           </div>
+          <img style={{opacity: (100 - value) / 100}} className="chore-image" src={chore} alt="travlt" />
+          <img style={{opacity: value / 100}} className="coffee-image" src={coffee} alt="kaffe" />
 
-          <p className="modal-container-content__dynamic-text">"{sliderText}"</p>
+          <p className="modal-container-content__dynamic-text">"Jeg trives <span className={ colorClass }>{word}</span> i hverdagen"</p>
           <button onClick={nextButtonWasClicked} className="modal__button">Næste</button>
         </div>
 
@@ -110,8 +109,10 @@ export default function SliderWithPercentage() {
 
             <input type="range" min={0} max={100} step={1} value={value} onChange={updatePercentage}/>
           </div>
+          <img style={{opacity: (100 - value) / 100}} className="chore-image" src={chore} alt="travlt" />
+          <img style={{opacity: value / 100}} className="coffee-image" src={coffee} alt="kaffe" />
 
-          <p className="modal-container-content__dynamic-text">"{sliderText}"</p>
+          <p className="modal-container-content__dynamic-text">"Jeg trives <span className={ colorClass }>{word}</span> i hverdagen"</p>
           <button onClick={nextButton2WasClicked} className="modal__button">Næste</button>
         </div>
 
@@ -157,4 +158,3 @@ export default function SliderWithPercentage() {
     </>
   );
 }
-

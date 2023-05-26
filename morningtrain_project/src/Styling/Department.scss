@@ -29,6 +29,10 @@
         background-color: #ffffff;
         margin-top: 15px;
         padding: 20px;
+
+        &__frame {
+            height: 350px;
+        }
         
         &__flex {
             display: flex;

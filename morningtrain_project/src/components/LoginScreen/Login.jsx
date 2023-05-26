@@ -1,14 +1,8 @@
-import { useEffect } from "react";
+import React from "react";
 import logo from "../../img/logo.svg"
 import { Link } from "react-router-dom";
-import { employeeArray } from "../../db";
 
 export default function LoginScreen() {
-    useEffect(() => {
-        if (localStorage.getItem('employeeData') === null) {
-            localStorage.setItem('employeeData', JSON.stringify(employeeArray));
-        }
-    }, [])
 
     const adminLogin = () => {
         localStorage.setItem('isAdmin', JSON.stringify(true));

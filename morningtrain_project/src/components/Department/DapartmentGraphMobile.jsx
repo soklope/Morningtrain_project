@@ -51,7 +51,7 @@ export default function DepartmentGraphMobile() {
         <Tooltip 
           headline={"HYPPIGSTE TAGS"} 
           input={"Denne graf viser en oversigt over de tags, afdelingen har angivet de sidste 10 uger."}
-          input2={"Dette kunne måske være relevant at snakke om,til næste OKR møde."}
+          input2={"Dette kunne måske være relevant at snakke om, til næste OKR møde."}
           />
       </div>
 

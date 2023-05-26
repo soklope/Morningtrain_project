@@ -55,7 +55,7 @@ export const getLast10WeekNumbers = () => {
   for (var i = 0; i < 10; i++) {
     var weekStartDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - (currentDate.getDay() + 7 * i));
     var weekNumber = getWeekNumber(weekStartDate);
-    weekNumbers.push(weekNumber.toString());
+    weekNumbers.push("uge " + weekNumber.toString());
   }
 
   return weekNumbers.reverse();

@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import { employeeArray } from './db';
 
 const useEmployeeStore = create((set) => ({
   employee:     
