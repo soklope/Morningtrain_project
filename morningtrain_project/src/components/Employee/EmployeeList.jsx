@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "react-router-dom";
-import useEmployeeStore from "../../employeeStore";
-import { employeeArray } from "../../db";
-import useDropdownStore from "../../dropdownStore";
+import useEmployeeStore from "../../employeeStore.jsx";
+import { employeeArray } from "../../db.js";
+import useDropdownStore from "../../dropdownStore.jsx";
 
 export default function EmployeeList() {
     const dropdownValue = useDropdownStore((state) => state.dropdownValue);

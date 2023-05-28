@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react"
-import PrivateGraph from "./PrivateGraph"
-import WorkGraph from "./WorkGraph"
-import UsedTags from "./UsedTags"
-import useEmployeeStore from "../../employeeStore"
-import Modal from "../Modal/Modal"
+import PrivateGraph from "./PrivateGraph.jsx"
+import WorkGraph from "./WorkGraph.jsx"
+import UsedTags from "./UsedTags.jsx"
+import useEmployeeStore from "../../employeeStore.jsx"
 
 export default function Employee() {
     const [selectedEmployee, setSelectedEmployee] = useState("PLACEHOLDER_NAME")

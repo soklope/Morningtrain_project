@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { employeeArray, managerArray } from "../../db";
-import useDropdownStore from "../../dropdownStore";
+import { employeeArray, managerArray } from "../../db.js";
+import useDropdownStore from "../../dropdownStore.jsx";
 
 export default function Profile( {open} ) {
 

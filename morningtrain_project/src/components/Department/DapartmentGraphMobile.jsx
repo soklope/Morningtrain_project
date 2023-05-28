@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import Tooltip from '../Navigation/Tooltip';
+import Tooltip from '../Navigation/Tooltip.jsx';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Legend } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { countLetterOccurrences } from '../../HelperFunctions';
-import { getAllTagsInOrder } from '../../HelperFunctions';
-import { employeeArray } from '../../db';
+import { countLetterOccurrences, getAllTagsInOrder } from '../../HelperFunctions.js';
+import { employeeArray } from '../../db.js';
 
   ChartJS.register(
     CategoryScale,

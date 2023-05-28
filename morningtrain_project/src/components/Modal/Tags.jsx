@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { tagsArray } from "../../db";
-import useEmployeeStore from "../../employeeStore";
+import { tagsArray } from "../../db.js";
+import useEmployeeStore from "../../employeeStore.jsx";
 
 export default function Tags() {
     const employee = useEmployeeStore((state) => state.employee);

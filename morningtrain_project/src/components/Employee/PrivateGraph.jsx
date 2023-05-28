@@ -2,9 +2,8 @@ import React from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Legend } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import Tooltip  from '../Navigation/Tooltip';
-import { getLast10WeekNumbers } from '../../HelperFunctions';
-import useEmployeeStore from '../../employeeStore';
-import { getRecentWorkData } from '../../HelperFunctions';
+import { getLast10WeekNumbers, getRecentWorkData } from '../../HelperFunctions.js';
+import useEmployeeStore from '../../employeeStore.jsx';
 
 ChartJS.register(
   CategoryScale,

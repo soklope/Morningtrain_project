@@ -1,6 +1,6 @@
 import React from "react";
-import Tooltip from "../Navigation/Tooltip";
-import useEmployeeStore from "../../employeeStore";
+import Tooltip from "../Navigation/Tooltip.jsx";
+import useEmployeeStore from "../../employeeStore.jsx";
 
 export default function UsedTags() {
     const employee = useEmployeeStore((state) => state.employee);

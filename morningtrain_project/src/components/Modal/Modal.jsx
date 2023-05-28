@@ -1,6 +1,6 @@
 import React from "react";
-import Slider from "./Slider";
-import useModalStore from "../../modalStore";
+import Slider from "./Slider.jsx";
+import useModalStore from "../../modalStore.jsx";
 
 export default function Modal() {
 

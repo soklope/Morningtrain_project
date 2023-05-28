@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import useEmployeeStore from "../../employeeStore";
+import useEmployeeStore from "../../employeeStore.jsx";
 import coffee from "../../img/coffee.png"
 import chore from "../../img/chore.png"
-import useModalStore from "../../modalStore";
-import Tags from "./Tags";
+import useModalStore from "../../modalStore.jsx";
+import Tags from "./Tags.jsx";
 
 export default function SliderWithPercentage() {
   const [value, setValue] = useState(50);

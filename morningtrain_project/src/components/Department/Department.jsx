@@ -1,13 +1,13 @@
 import React from "react";
-import { managerArray, employeeArray } from "../../db";
-import DepartmentGraphMobile from "./DapartmentGraphMobile";
-import MobileGraphDesc from "./MobileGraphDesc";
-import DepartmentGraphDesktop from "./DepartmentGraphDesktop";
-import PrivateGraph from "../Employee/PrivateGraph";
-import WorkGraph from "../Employee/WorkGraph"
-import UsedTags from "../Employee/UsedTags"
-import Modal from "../Modal/Modal";
-import useModalStore from "../../modalStore";
+import { managerArray, employeeArray } from "../../db.js";
+import DepartmentGraphMobile from "./DapartmentGraphMobile.jsx";
+import MobileGraphDesc from "./MobileGraphDesc.jsx";
+import DepartmentGraphDesktop from "./DepartmentGraphDesktop.jsx";
+import PrivateGraph from "../Employee/PrivateGraph.jsx";
+import WorkGraph from "../Employee/WorkGraph.jsx"
+import UsedTags from "../Employee/UsedTags.jsx"
+import Modal from "../Modal/Modal.jsx";
+import useModalStore from "../../modalStore.jsx";
 
 export default function Department() {
 

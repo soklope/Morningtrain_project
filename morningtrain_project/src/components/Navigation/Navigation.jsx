@@ -2,13 +2,13 @@ import chartIcon from "../../img/chart.png"
 import employeeIcon from "../../img/group.png"
 import profileIcon from "../../img/profile.png"
 import mtLogo from "../../img/logo.svg"
-import Profile from "./Profile";
-import EmployeeList from "../Employee/EmployeeList";
+import Profile from "./Profile.jsx";
+import EmployeeList from "../Employee/EmployeeList.jsx";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { employeeArray, managerArray } from "../../db";
-import useEmployeeStore from "../../employeeStore";
-import useDropdownStore from "../../dropdownStore";
+import { employeeArray, managerArray } from "../../db.js";
+import useEmployeeStore from "../../employeeStore.jsx";
+import useDropdownStore from "../../dropdownStore.jsx";
 
 export default function Header() {
     const [openProfileTab, setOpenProfileTab] = useState(false)
